@@ -1,0 +1,27 @@
+    {{!-- Header --}}
+    {{>admin/header}}
+
+  <!-- Navigation-->
+  {{>admin/navbar}}
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/admin">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Blank Page</li>
+      </ol>
+      <div class="row">
+        <div class="col-12">
+          {{>shared/sessions}}
+          {{{body}}}
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+
+    {{!-- Footer --}}
+    {{>admin/footer}}

@@ -1,0 +1,30 @@
+<h1>Posts</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <th>Id</th>
+        <th>title</th>
+        <th>File</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Remove</th>
+    </thead>
+    <tbody>
+        {{#each posts}}
+            <tr>
+                <td>{{ this._id }}</td>
+                <td>{{ this.title }}</td>
+                <td><img src="/uploads/{{ this.file }}" style="width:80px;"></td>
+                <td>{{ this.status }}</td>
+                <td>{{ formatDate date 'MMMM Do YYYY' }}</td>
+                <td><a href="/admin/posts/edit/{{ this._id }}" class="btn btn-info">Edit</a></td>
+                <td>
+                    <form action="/admin/posts/delete/{{ this._id }}?_method=delete" method="post">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

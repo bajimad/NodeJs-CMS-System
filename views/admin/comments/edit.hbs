@@ -1,0 +1,34 @@
+<h1>Edit Comments</h1>
+
+<form action="/admin/comments/edit/{{comment._id}}?_method=PUT" method="post">
+
+    <div class="form-group">
+        <label for="">User</label>
+        <select name="user" class="form-control" required>
+            <option value="">Choose</option>
+            {{#each users}}
+                <option value="{{ this._id }}">{{ this.email }}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="">Post</label>
+        <select name="post" class="form-control" required>
+            <option value="">Choose</option>
+            {{#each posts}}
+                <option value="{{ this._id }}">{{ this.title }}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="">Body</label>
+        <textarea name="body" rows="7" class="form-control">{{comment.body}}</textarea>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info">Update</button>
+    </div>
+
+</form>

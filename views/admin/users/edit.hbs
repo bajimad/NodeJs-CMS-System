@@ -1,0 +1,29 @@
+<h1>Edit User</h1>
+
+<form action="/admin/users/edit/{{ user._id }}?_method=PUT" method="post">
+
+    <div class="form-group">
+        <label for="">First Name</label>
+        <input type="text" name="first_name" value="{{ user.first_name }}" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="">Last Name</label>
+        <input type="text" name="last_name" value="{{ user.last_name }}" class="form-control">
+    </div>
+    
+    <div class="form-group">
+        <label for="">Email</label>
+        <input type="email" name="email" value="{{ user.email }}" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="">Password</label>
+        <input type="password" name="password" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info">Update</button>
+    </div>
+
+</form>

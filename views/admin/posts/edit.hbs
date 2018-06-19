@@ -1,0 +1,61 @@
+<h1>Edit Post</h1>
+
+<form action="/admin/posts/edit/{{ post._id }}?_method=PUT" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="">Title</label>
+        <input type="text" name="title" value="{{ post.title }}" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="">User</label>
+        <select name="user" class="form-control" required>
+            <option value="">Choose</option>
+            {{#each users}}
+                <option value="{{ this._id }}" {{{selectedIfIsEqual this._id ../post.user}}}>{{ this.email }}</option>
+            {{/each}}
+            
+        </select>
+    </div>
+
+    
+
+    <div class="form-group">
+        <label for="">Category</label>
+        <select name="category" class="form-control" required>
+            <option value="">Choose</option>
+            {{#each categories}}
+                <option value="{{ this._id }}" {{{selectedIfIsEqual this._id ../post.category  }}}>{{ this.name }}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="">Status</label>
+        <select name="status" class="form-control" required>
+            <option value="">Choose</option>
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+            <option value="draft">Draft</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="checkbox" name="allow_comments"> Allow Comments
+    </div>
+    
+    <div class="form-group">
+        <label for="">Thumbnail</label>
+        <input type="file" name="file" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="">Body</label>
+        <textarea rows="10" name="body" class="form-control">{{ post.body }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Create</button>
+    </div>
+
+</form>

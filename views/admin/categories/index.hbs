@@ -1,0 +1,23 @@
+<h1>Categories</h1>
+<table class="table table-bordered">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Remove</th>
+    </thead>
+    <tbody>
+        {{#each categories}}
+            <tr>
+                <td>{{ this._id }}</td>
+                <td>{{ this.name }}</td>
+                <td><a href="/admin/categories/edit/{{ this._id }}" class="btn btn-info">Edit</a></td>
+                <td>
+                    <form action="/admin/categories/delete/{{ this._id }}?_method=DELETE" method="post">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

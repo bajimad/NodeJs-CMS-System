@@ -1,0 +1,24 @@
+<h1>Comments</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <th>Id</th>
+        <th>Post Id</th>
+        <th>Edit</th>
+        <th>Remove</th>
+    </thead>
+    <tbody>
+        {{#each comments}}
+            <tr>
+                <td>{{ this._id }}</td>
+                <td>{{ this.post }}</td>
+                <td><a href="/admin/comments/edit/{{ this._id }}" class="btn btn-info">Edit</a></td>
+                <td>
+                    <form action="/admin/comments/delete/{{ this._id }}?_method=DELETE" method="post">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

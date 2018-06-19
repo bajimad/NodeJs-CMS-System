@@ -1,0 +1,23 @@
+<h1>Users</h1>
+<table class="table table-bordered">
+    <thead>
+        <th>Id</th>
+        <th>E-mail</th>
+        <th>Edit</th>
+        <th>Remove</th>
+    </thead>
+    <tbody>
+        {{#each users}}
+            <tr>
+                <td>{{ this._id }}</td>
+                <td>{{ this.name }}</td>
+                <td><a href="/admin/users/edit/{{ this._id }}" class="btn btn-info">Edit</a></td>
+                <td>
+                    <form action="/admin/users/delete/{{ this._id }}?_method=DELETE" method="post">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
